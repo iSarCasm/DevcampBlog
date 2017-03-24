@@ -1,0 +1,15 @@
+%h1 Portfolio items
+
+- @portfolio_items.each do |portfolio|
+  %h2= portfolio.title
+  %h3= portfolio.subtitle
+  %p= portfolio.body
+  %img{src: portfolio.main_image}
+  %img{src: portfolio.thumb_image}
+  - if portfolio.created_at != portfolio.updated_at
+    %p
+      Last updated
+      %i= portfolio.updated_at
+  %p
+    Post created
+    %i= portfolio.created_at
