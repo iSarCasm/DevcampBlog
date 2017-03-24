@@ -6,7 +6,7 @@ begin
     )
   end
   puts "Successfully created 10 blog posts"
-rescue e
+rescue Exception => e
   puts "Failed to create blogs: #{e}"
 end
 
@@ -18,7 +18,7 @@ begin
     )
   end
   puts "Successfully created 5 skills."
-rescue e
+rescue Exception => e
   puts "Failed to create skills: #{e}"
 end
 
