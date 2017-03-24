@@ -1,5 +1,5 @@
 class PortfoliosController < ApplicationController
-  before_action :set_portfolio, only: [:edit, :update, :show]
+  before_action :set_portfolio, only: [:edit, :update, :show, :destroy]
 
   def index
     @portfolio_items = Portfolio.all
@@ -28,6 +28,11 @@ class PortfoliosController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @portfolio_item.destroy
+    redirect_to portfolios_path, notice: "Blog post #{@portfolio_item.title} deleted."
   end
 
   private
