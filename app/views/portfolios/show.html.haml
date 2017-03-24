@@ -1,0 +1,16 @@
+= link_to "Back", portfolios_path
+
+%h2
+  = @portfolio_item.title
+  %span= link_to "Edit", edit_portfolio_path(@portfolio_item)
+%h3= @portfolio_item.subtitle
+%p= @portfolio_item.body
+%img{src: @portfolio_item.main_image}
+%img{src: @portfolio_item.thumb_image}
+- if @portfolio_item.created_at != @portfolio_item.updated_at
+  %p
+    Last updated
+    %i= @portfolio_item.updated_at
+%p
+  Post created
+  %i= @portfolio_item.created_at

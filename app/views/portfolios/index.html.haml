@@ -1,15 +1,17 @@
 %h1 Portfolio items
-
-- @portfolio_items.each do |portfolio|
-  %h2= portfolio.title
-  %h3= portfolio.subtitle
-  %p= portfolio.body
-  %img{src: portfolio.main_image}
-  %img{src: portfolio.thumb_image}
-  - if portfolio.created_at != portfolio.updated_at
+= link_to "Create new portfolio ", new_portfolio_path
+- @portfolio_items.each do |portfolio_item|
+  %h2
+    = link_to portfolio_item.title, portfolio_path(portfolio_item)
+    %span= link_to "Edit", edit_portfolio_path(portfolio_item)
+  %h3= portfolio_item.subtitle
+  %p= portfolio_item.body
+  %img{src: portfolio_item.main_image}
+  %img{src: portfolio_item.thumb_image}
+  - if portfolio_item.created_at != portfolio_item.updated_at
     %p
       Last updated
-      %i= portfolio.updated_at
+      %i= portfolio_item.updated_at
   %p
     Post created
-    %i= portfolio.created_at
+    %i= portfolio_item.created_at
