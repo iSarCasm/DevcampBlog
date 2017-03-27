@@ -56,3 +56,12 @@ begin
 rescue Exception => e
   puts "Failed to create portfolios: #{e}"
 end
+
+begin
+  Portfolio.last.technologies.create!(name: "Rails")
+  Portfolio.last.technologies.create!(name: "Angular")
+  Portfolio.first.technologies.create!(name: "JS")
+  puts "Successfully created 3 technologies."
+rescue Exception => e
+  puts "Failed to create technologies: #{e}"
+end
