@@ -6,5 +6,9 @@ Rails.application.routes.draw do
   resources :portfolio, controller: 'portfolios', except: [:index]
   get 'portfolios', to: 'portfolios#index', as: 'portfolios'
 
-  resources :blogs
+  resources :blogs do
+    member do
+      get :toggle_status
+    end
+  end
 end
