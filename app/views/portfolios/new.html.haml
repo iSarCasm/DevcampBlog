@@ -1,6 +1,6 @@
 %h1 Create new porfolio item
 
-= form_for(@portfolio_item) do |f|
+= form_for(@portfolio_item, url: portfolio_index_url) do |f|
   .field
     = f.label :title
     = f.text_field :title
